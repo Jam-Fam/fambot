@@ -4,7 +4,8 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 
-const prefix = 'fb ';
+const config = require('./config.json');
+let prefix = config.prefix;
 
 Object.keys(botCommands).map(key => {
   bot.commands.set(botCommands[key].name, botCommands[key]);
@@ -30,7 +31,8 @@ bot.on('message', msg => {
 
   try {
     bot.commands.get(command).execute(msg, args);
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
   }

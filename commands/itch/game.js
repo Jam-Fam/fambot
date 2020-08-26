@@ -22,7 +22,7 @@ function game(msg, args) {
     })
     .catch((err) => {
         console.log(err);
-        msg.channel.send("Couldn't get that user from itch.io.");
+        msg.channel.send("Couldn't get that game from itch.io.");
     })
 }
 
