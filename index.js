@@ -4,6 +4,8 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 
+const prefix = 'fb ';
+
 Object.keys(botCommands).map(key => {
   bot.commands.set(botCommands[key].name, botCommands[key]);
 });
@@ -17,6 +19,9 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
+  if (!msg.content.startsWith(prefix)) return;
+  msg.content = msg.content.substring(prefix.length);
+
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   console.info(`Called command: ${command}`);

@@ -1,3 +1,4 @@
 module.exports = {
-  Ping: require('./ping'),
+  Itch: require('./itch'),
+  Help: require('./help')
 };
