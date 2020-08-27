@@ -12,16 +12,20 @@ function user(msg, args) {
     axios.get(`${API_GAMES}${username}`)
     .then((res) => {
         let games = res.data.games;
-        links = games.map(g => `[${g.title}](${g.url})`).join(' | ');
 
         axios.get(`${API_USER}${username}`)
         .then((res) => {
             let user = res.data.users[0];
 
-            let embed = new Discord.RichEmbed()
-            .setTitle(user.display_name || username)
+            let embed = new Discord.MessageEmbed()
+
+            .setTitle(user.display_name || user.username)
             .setThumbnail(user.cover_url)
-            .addField("Games", links)
+
+            games.forEach(g => {
+                let shortenedUrl = g.url.replace('https://', '');
+                embed.addField(g.title,`[${shortenedUrl}](${g.url})`);
+            });
 
             msg.channel.send(embed);
         })

@@ -11,7 +11,7 @@ module.exports = {
       switch (type) {
         case "user": user(msg,args); break;
         case "game": game(msg,args); break;
-        default: msg.channel.send("Unknown itch command. Type 'itch help' for more help.")
+        default: msg.channel.send("Unknown itch command.")
       }
     },
   };
