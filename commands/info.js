@@ -6,7 +6,7 @@ module.exports = {
 
     execute(msg, args) {     
 
-      let embed = new Discord.RichEmbed()
+      let embed = new Discord.MessageEmbed()
         .setTitle("FamBot Info")
         .addField('Maintained by', "@ntwiles", true)
         .addField('GitHub',"[click here](https://github.com/ntwiles/jamfam-fambot)", true);

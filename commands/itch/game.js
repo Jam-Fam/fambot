@@ -10,11 +10,13 @@ function game(msg, args) {
     axios.get(`${API_GAMES}${gameTitle}`)
     .then((res) => {
         let game = res.data.games[0];
+        let creator = game.url.substring("https://".length).split('.')[0];
+        let publishedAgo = moment(game.published_at).fromNow();
 
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setTitle(game.title)
         .setThumbnail(game.cover_url)
-        .addField("Published", moment(game.published_at).fromNow(), true)
+        .addField("Published",`${publishedAgo} by ${creator}` , true)
         .addField('Download', `[(play on itch.io)](${game.url})`, true)
         .addField('Description',game.short_text);
 
