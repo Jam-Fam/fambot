@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const config = require('../../config.json');
 
 let prefix = config.prefix;
-let commands = ['itch','info'].map(c => `\`${prefix}${c}\``).join(', ')
+let commands = ['itch', 'info', 'rogue'].map(c => `\`${prefix}${c}\``).join(', ')
 
 function help(msg, args) {
     let embed = new Discord.MessageEmbed()
