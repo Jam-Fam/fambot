@@ -5,8 +5,7 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 
-const config = require('./config.json');
-let prefix = config.prefix;
+let prefix = process.env.PREFIX;
 
 Object.keys(botCommands).map(key => {
   bot.commands.set(botCommands[key].name, botCommands[key]);
