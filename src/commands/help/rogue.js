@@ -1,15 +1,12 @@
-const Discord = require('discord.js');
+import Discord  from 'discord.js';
 
-require('dotenv').config();
-let prefix = process.env.PREFIX;
+import config from '../../config.js'
 
-function rogue(msg, args) {
+export function rogue(msg, args) {
     let embed = new Discord.MessageEmbed()
     .setTitle("Fambot Rogue Help")
 
-    .addField("Get project info:", `\`${prefix}rogue\``)
+    .addField("Get project info:", `\`${config.PREFIX}rogue\``)
 
     msg.channel.send(embed);
 }
-
-exports.rogue = rogue;

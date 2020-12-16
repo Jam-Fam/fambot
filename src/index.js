@@ -1,27 +1,24 @@
-require('dotenv').config();
-const Discord = require('discord.js');
+import Discord from 'discord.js'
+
+import config from './config.js'
+import commands from './commands.js'
+
 const bot = new Discord.Client();
-
 bot.commands = new Discord.Collection();
-const botCommands = require('./commands');
 
-let prefix = process.env.PREFIX;
-
-Object.keys(botCommands).map(key => {
-  bot.commands.set(botCommands[key].name, botCommands[key]);
+Object.keys(commands).map(key => {
+  bot.commands.set(commands[key].name, commands[key]);
 });
 
-const TOKEN = process.env.TOKEN;
-
-bot.login(TOKEN);
+bot.login(config.TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
 bot.on('message', msg => {
-  if (!msg.content.startsWith(prefix)) return;
-  msg.content = msg.content.substring(prefix.length);
+  if (!msg.content.startsWith(config.PREFIX)) return;
+  msg.content = msg.content.substring(config.PREFIX.length);
 
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();

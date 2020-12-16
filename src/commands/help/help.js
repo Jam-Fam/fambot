@@ -1,17 +1,14 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
 
-require('dotenv').config();
-let prefix = process.env.PREFIX;
+import config from '../../config.js' 
 
-let commands = ['itch', 'info', 'rogue'].map(c => `\`${prefix}${c}\``).join(', ')
+let commands = ['itch', 'info', 'rogue'].map(c => `\`${config.PREFIX}${c}\``).join(', ')
 
-function help(msg, args) {
+export function help(msg, args) {
     let embed = new Discord.MessageEmbed()
         .addField("Here are the commands I can run:", commands)
         .addField("Get more help on any command like this:",
-        `\`${prefix}help itch\``);
+        `\`${config.PREFIX}help itch\``);
 
     msg.channel.send(embed);
 }
-
-exports.help = help;

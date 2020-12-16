@@ -1,8 +1,8 @@
-const { itch } = require('./itch');
-const { rogue } = require('./rogue');
-const { help } = require('./help');
+import { itch } from './itch.js';
+import { rogue } from './rogue.js';
+import { help } from './help.js';
 
-module.exports = {
+export default {
     name: 'help',
     description: "Gets information on a given itch user.",
 

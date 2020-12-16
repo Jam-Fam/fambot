@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
-const axios = require('axios').default;
-const moment = require('moment');
+import Discord from 'discord.js';
+import axios from 'axios';
+import moment from 'moment';
 
 const API_GAMES = 'https://itch.io/api/1/YLI3BwnG1wWxh8RMCHSEdJV0wsYXuNEnfh09pMou/search/games?query=';
 
-function game(msg, args) {
+export default function game(msg, args) {
     let gameTitle = args.slice(1).join(' ');
 
     axios.get(`${API_GAMES}${gameTitle}`)
@@ -27,5 +27,3 @@ function game(msg, args) {
         msg.channel.send("Couldn't get that game from itch.io.");
     })
 }
-
-exports.game = game;

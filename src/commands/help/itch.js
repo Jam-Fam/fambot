@@ -1,16 +1,12 @@
-const Discord = require('discord.js');
+import Discord from 'discord.js';
 
-require('dotenv').config();
+import config from '../../config.js'
 
-let prefix = process.env.PREFIX;
-
-function itch(msg, args) {
+export function itch(msg, args) {
     let embed = new Discord.MessageEmbed()
     .setTitle("Fambot Itch Help")
-    .addField("Get itch.io user details:", `\`${prefix}itch user ntwiles\``)
-    .addField("Get itch.io game details:", `\`${prefix}itch game voidrun\` *or* \`${prefix}itch game voidrun ntwiles\``)
+    .addField("Get itch.io user details:", `\`${config.PREFIX}itch user ntwiles\``)
+    .addField("Get itch.io game details:", `\`${config.PREFIX}itch game voidrun\` *or* \`${config.PREFIX}itch game voidrun ntwiles\``)
 
     msg.channel.send(embed);
 }
-
-exports.itch = itch;
