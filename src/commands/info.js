@@ -20,7 +20,7 @@ export default {
     let embed = new Discord.MessageEmbed()
       .setTitle("FamBot Info")
       .addField('Maintained by', maintainerStr, true)
-      .addField('GitHub',"[click here](https://github.com/ntwiles/jamfam-fambot)", true);
+      .addField('GitHub',"[click here](https://github.com/Jam-Fam/jamfam-fambot)", true);
     msg.channel.send(embed);
   },
 };
