@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
-const config = require('../../config.json');
 
-let prefix = config.prefix;
+require('dotenv').config();
+let prefix = process.env.PREFIX;
+
 let commands = ['itch', 'info', 'rogue'].map(c => `\`${prefix}${c}\``).join(', ')
 
 function help(msg, args) {

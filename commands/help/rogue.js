@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const config = require('../../config.json');
 
-let prefix = config.prefix;
+require('dotenv').config();
+let prefix = process.env.PREFIX;
 
 function rogue(msg, args) {
     let embed = new Discord.MessageEmbed()
