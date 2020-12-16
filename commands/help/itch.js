@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
-const config = require('../../config.json');
 
-let prefix = config.prefix;
+require('dotenv').config();
+
+let prefix = process.env.PREFIX;
 
 function itch(msg, args) {
     let embed = new Discord.MessageEmbed()
