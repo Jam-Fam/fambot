@@ -12,6 +12,7 @@ export const calculateInvites = (inviter) => {
 
 export async function count(msg, args) {
     const inviter = await Inviters.get(msg.member.user.id)
+    console.log(inviter)
     const invites = calculateInvites(inviter)
     msg.channel.send(`You have ${invites} invite(s) earned.`)
 }
