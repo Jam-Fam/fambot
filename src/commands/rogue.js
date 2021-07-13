@@ -4,7 +4,7 @@ export default {
   name: 'rogue',
   description: "Gives info about the our team project.",
 
-  execute(msg, args) {     
+  execute(msg) {     
     let embed = new Discord.MessageEmbed()
       .setTitle("Project Rogue Info")
       .setDescription("Rogue is our team roguelike project.\nJoin <#694768305201873018> to learn more.")

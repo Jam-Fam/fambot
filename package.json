@@ -15,5 +15,8 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0"
   }
 }

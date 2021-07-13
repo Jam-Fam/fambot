@@ -1,5 +1,3 @@
-import Discord from 'discord.js';
-
 import * as Inviters from '../../services/inviters.js'
 import config from '../../config.js'
 
@@ -10,7 +8,7 @@ export const calculateInvites = (inviter) => {
     return totalEarned - inviter.invitesCreated
 }
 
-export async function count(msg, args) {
+export async function count(msg) {
     const inviter = await Inviters.get(msg.member.user.id)
     const invites = calculateInvites(inviter)
     msg.channel.send(`You have ${invites} invite(s) earned.`)

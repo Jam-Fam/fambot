@@ -1,9 +1,7 @@
-import Discord from 'discord.js';
-
 import { calculateInvites } from './count.js'
 import * as Inviters from '../../services/inviters.js'
 
-export async function create(msg, args) {
+export async function create(msg) {
     const channel = msg.guild.channels.cache
         .filter((channel) => channel.type === 'text')
         .first()

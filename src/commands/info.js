@@ -15,7 +15,7 @@ export default {
   name: 'info',
   description: "Gives info about the bot.",
 
-  execute(msg, args) {     
+  execute(msg) {     
     let maintainerStr = maintainers.map(m => `<@${m.id}>`).join(', ');
     let embed = new Discord.MessageEmbed()
       .setTitle("FamBot Info")
