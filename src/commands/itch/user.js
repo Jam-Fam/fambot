@@ -1,6 +1,6 @@
 import Discord from 'discord.js';
 import axios from 'axios'
-import config from './config.js'
+import config from '../../config.js'
 
 const API_GAMES = `https://itch.io/api/1/${config.API_KEY_ITCH}/search/games?query=`;
 const API_USER = `https://itch.io/api/1/${config.API_KEY_ITCH}/search/users?query=`;
