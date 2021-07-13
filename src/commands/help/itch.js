@@ -2,7 +2,7 @@ import Discord from 'discord.js';
 
 import config from '../../config.js'
 
-export function itch(msg, args) {
+export function itch(msg) {
     let embed = new Discord.MessageEmbed()
     .setTitle("Fambot Itch Help")
     .addField("Get itch.io user details:", `\`${config.PREFIX}itch user ntwiles\``)

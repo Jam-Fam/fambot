@@ -2,7 +2,7 @@ import Discord  from 'discord.js';
 
 import config from '../../config.js'
 
-export function rogue(msg, args) {
+export function rogue(msg) {
     let embed = new Discord.MessageEmbed()
     .setTitle("Fambot Rogue Help")
 

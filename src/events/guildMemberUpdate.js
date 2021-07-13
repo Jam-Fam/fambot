@@ -2,7 +2,7 @@ import config from './../config.js'
 
 import * as Inviters from '../services/inviters.js'
 
-const onGuildMemberUpdate = async (oldMember, newMember, bot) => {
+const onGuildMemberUpdate = async (oldMember, newMember) => {
     const inviterBefore = oldMember.roles.cache.find(r => r.name === config.INVITER_ROLE)
     const inviterAfter = newMember.roles.cache.find(r => r.name === config.INVITER_ROLE)
     
