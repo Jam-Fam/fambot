@@ -16,10 +16,7 @@ export const create = async (userId) => {
 };
 
 export const get = async (userId) => {
-  // TODO Handle error can't load file.
   const result = await readFile("./src/inviterData.json");
-
-  // TODO Handle error can't parse.
   const inviters = JSON.parse(result.toString());
   const existingInviter = inviters.find((i) => i.userId === userId);
 
