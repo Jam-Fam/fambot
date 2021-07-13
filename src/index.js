@@ -15,7 +15,7 @@ Object.keys(commands).map(key => {
   bot.commands.set(commands[key].name, commands[key]);
 })
 
-bot.login(config.TOKEN);
+bot.login(config.AUTH_TOKEN_DISCORD);
 
 bot.on('ready', () => 
   console.info(`Logged in as ${bot.user.tag}!`))

@@ -1,8 +1,9 @@
 import Discord from 'discord.js';
 import axios from 'axios';
 import moment from 'moment';
+import config from './config.js'
 
-const API_GAMES = 'https://itch.io/api/1/YLI3BwnG1wWxh8RMCHSEdJV0wsYXuNEnfh09pMou/search/games?query=';
+const API_GAMES = `https://itch.io/api/1/${config.API_KEY_ITCH}/search/games?query=`;
 
 export default function game(msg, args) {
     let gameTitle = args.slice(1).join(' ');

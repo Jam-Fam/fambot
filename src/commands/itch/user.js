@@ -1,8 +1,9 @@
 import Discord from 'discord.js';
 import axios from 'axios'
+import config from './config.js'
 
-const API_GAMES = 'https://itch.io/api/1/YLI3BwnG1wWxh8RMCHSEdJV0wsYXuNEnfh09pMou/search/games?query=';
-const API_USER = 'https://itch.io/api/1/YLI3BwnG1wWxh8RMCHSEdJV0wsYXuNEnfh09pMou/search/users?query=';
+const API_GAMES = `https://itch.io/api/1/${config.API_KEY_ITCH}/search/games?query=`;
+const API_USER = `https://itch.io/api/1/${config.API_KEY_ITCH}/search/users?query=`;
 const MAX_GAMES = 10;
 
 export default function user(msg, args) {
