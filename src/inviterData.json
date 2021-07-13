@@ -1,1 +1,12 @@
-[{"userId":"222194207710773249","invitesCreated":2,"grantedAt":"2020-12-19T23:32:03.490Z"},{"userId":"292593191348076544","invitesCreated":1,"grantedAt":"2020-12-19T23:52:53.681Z"}]
+[
+  {
+    "userId": "222194207710773249",
+    "invitesCreated": 2,
+    "grantedAt": "2020-12-19T23:32:03.490Z"
+  },
+  {
+    "userId": "292593191348076544",
+    "invitesCreated": 1,
+    "grantedAt": "2020-12-19T23:52:53.681Z"
+  }
+]

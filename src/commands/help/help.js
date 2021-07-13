@@ -1,14 +1,18 @@
-import Discord from 'discord.js';
+import Discord from "discord.js";
 
-import config from '../../config.js' 
+import config from "../../config.js";
 
-let commands = ['itch', 'info', 'rogue'].map(c => `\`${config.PREFIX}${c}\``).join(', ')
+let commands = ["itch", "info", "rogue"]
+  .map((c) => `\`${config.PREFIX}${c}\``)
+  .join(", ");
 
 export function help(msg) {
-    let embed = new Discord.MessageEmbed()
-        .addField("Here are the commands I can run:", commands)
-        .addField("Get more help on any command like this:",
-        `\`${config.PREFIX}help itch\``);
+  let embed = new Discord.MessageEmbed()
+    .addField("Here are the commands I can run:", commands)
+    .addField(
+      "Get more help on any command like this:",
+      `\`${config.PREFIX}help itch\``
+    );
 
-    msg.channel.send(embed);
+  msg.channel.send(embed);
 }
