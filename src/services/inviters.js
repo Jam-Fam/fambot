@@ -4,17 +4,15 @@ import util from "util";
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
-// TODO: Replace 'member' with 'inviter' in variable names.
-
 export const create = async (userId) => {
-  const newMember = {
+  const newInviter = {
     userId,
     invitesCreated: 0,
     grantedAt: new Date(),
   };
-  await set(newMember);
+  await set(newInviter);
 
-  return newMember;
+  return newInviter;
 };
 
 export const get = async (userId) => {
@@ -22,10 +20,10 @@ export const get = async (userId) => {
   const result = await readFile("./src/inviterData.json");
 
   // TODO Handle error can't parse.
-  const members = JSON.parse(result.toString());
-  const existingMember = members.find((m) => m.userId === userId);
+  const inviters = JSON.parse(result.toString());
+  const existingInviter = inviters.find((i) => i.userId === userId);
 
-  return existingMember;
+  return existingInviter;
 };
 
 export const index = async () => {
@@ -33,13 +31,15 @@ export const index = async () => {
   return JSON.parse(result.toString());
 };
 
-export const set = async (updatedMember) => {
-  const members = await index();
-  let existingMember = members.find((m) => m.userId === updatedMember.userId);
+export const set = async (updatedInviter) => {
+  const inviters = await index();
+  let existingInviter = inviters.find(
+    (i) => i.userId === updatedInviter.userId
+  );
 
-  if (existingMember) Object.assign(existingMember, updatedMember);
-  else members.push(updatedMember);
+  if (existingInviter) Object.assign(existingInviter, updatedInviter);
+  else inviters.push(updatedInviter);
 
-  const stringified = JSON.stringify(members);
+  const stringified = JSON.stringify(inviters);
   await writeFile("./src/inviterData.json", stringified);
 };

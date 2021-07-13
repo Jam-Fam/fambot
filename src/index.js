@@ -10,7 +10,6 @@ bot.commands = new Discord.Collection();
 
 dotenv.config();
 
-// TODO Can we just commands.map here?
 Object.keys(commands).map((key) => {
   bot.commands.set(commands[key].name, commands[key]);
 });
