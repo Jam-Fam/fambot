@@ -1,8 +1,6 @@
 import { create } from "./create.js";
 import { count } from "./count.js";
 
-import config from "../../config.js";
-
 import * as Inviters from "../../services/inviters.js";
 
 export default {
@@ -14,7 +12,7 @@ export default {
 
     if (!inviter) {
       msg.channel.send(
-        `You must be granted the @${config.INVITER_ROLE} role to invite users.`
+        `You must be granted the @${process.env.INVITER_ROLE} role to invite users.`
       );
       return;
     }

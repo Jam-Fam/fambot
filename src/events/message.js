@@ -1,9 +1,7 @@
-import config from "./../config.js";
-
 const onMessage = (msg, bot) => {
-  if (!msg.content.startsWith(config.PREFIX)) return;
+  if (!msg.content.startsWith(process.env.PREFIX)) return;
 
-  msg.content = msg.content.substring(config.PREFIX.length);
+  msg.content = msg.content.substring(process.env.PREFIX.length);
 
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
