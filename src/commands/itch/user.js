@@ -18,9 +18,11 @@ export default function user(msg, args) {
       .then((res) => {
         let games = res.data.games;
 
-        games = games.sort(
-          (a, b) => new Date(b.published_at) - new Date(a.published_at)
-        );
+        games = games
+          // Try to ignore any games who matched the search for the wrong reasons.
+          .filter((g) => g.url.includes(`${username}.itch`))
+          .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+
         let isTruncated;
 
         if (games.length > MAX_GAMES) {
@@ -29,7 +31,6 @@ export default function user(msg, args) {
         }
 
         let embed = new Discord.MessageEmbed()
-
           .setTitle(user.display_name || user.username)
           .setThumbnail(user.cover_url);
 
